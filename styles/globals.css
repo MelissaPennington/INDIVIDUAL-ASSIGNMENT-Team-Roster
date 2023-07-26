@@ -18,5 +18,10 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: black;
+  background-image: url('https://b3n8a3n8.rocketcdn.me/wp-content/uploads/2021/07/Types-of-Bees-and-How-to-Identify-Them-Pictures-Names-Identification-1140x760.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  image-rendering: smooth;
 }

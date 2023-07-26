@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
+  console.warn();
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
