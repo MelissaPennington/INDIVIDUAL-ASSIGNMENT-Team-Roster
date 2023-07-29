@@ -17,7 +17,7 @@ function Members() {
     <div className="team">
       <h1>The Team!</h1>
       <div className="add-member">
-        <Link href="/members/new" passHref>
+        <Link href="/member/newMember" passHref>
           <Button variant="info" type="button">
             Add Member
           </Button>
