@@ -12,6 +12,7 @@ const initialState = {
   lastName: '',
   image: '',
   role: '',
+  team: '',
 };
 
 function MemberForm({ obj }) {
@@ -88,6 +89,17 @@ function MemberForm({ obj }) {
         />
       </FloatingLabel>
 
+      <FloatingLabel controlId="floatingInput3" label="Team" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="team"
+          name="team"
+          value={formInput.team}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       <FloatingLabel controlId="floatingInput3" label="Member Image" className="mb-3">
         <Form.Control
           type="url"
@@ -108,6 +120,8 @@ MemberForm.propTypes = {
   obj: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
+    role: PropTypes.string,
+    team: PropTypes.string,
     image: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),

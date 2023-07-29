@@ -1,10 +1,9 @@
-// ./pages/team/edit/[firebaseKey].js
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import { useRouter } from 'next/router';
 import { getSingleTeam, updateTeam } from '../api/teamData';
+import Card from './card';
 
 function EditTeamPage({ team }) {
   const router = useRouter();
@@ -28,6 +27,7 @@ function EditTeamPage({ team }) {
           <label htmlFor="teamName">Team Name</label>
           <input type="text" id="teamName" name="teamName" defaultValue={team.teamName} />
         </div>
+        <Card />
         <Button type="submit">Update Team</Button>
       </form>
     </div>

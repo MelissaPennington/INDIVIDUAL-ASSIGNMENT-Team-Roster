@@ -21,8 +21,9 @@ export default function MemberCard({ memberObj, onUpdate }) {
         <Card.Title>{memberObj.firstName}</Card.Title>
         <Card.Title>{memberObj.lastName}</Card.Title>
         <Card.Title>{memberObj.role}</Card.Title>
+        <Card.Title>{memberObj.team}</Card.Title>
         {/* DYNAMIC LINK TO EDIT THE MEMBER DETAILS  */}
-        <Link href={`/members/edit/${memberObj.firebaseKey}`} passHref>
+        <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisMember} className="m-2">
@@ -39,6 +40,7 @@ MemberCard.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     role: PropTypes.string,
+    team: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
