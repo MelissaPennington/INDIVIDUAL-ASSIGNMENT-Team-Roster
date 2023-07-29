@@ -52,7 +52,7 @@ function TeamForm({ obj }) {
         <Form.Control type="text" placeholder="Team Name" name="team_name" value={formInput.team_name} onChange={handleChange} required />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Author Image" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Team Image" className="mb-3">
         <Form.Control type="url" placeholder="Enter an image url" name="image" value={formInput.image} onChange={handleChange} required />
       </FloatingLabel>
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import { useRouter } from 'next/router';
 import { getSingleTeam, updateTeam } from '../api/teamData';
-import Card from './card';
+import Card from './teamListCard';
 
 function EditTeamPage({ team }) {
   const router = useRouter();

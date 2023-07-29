@@ -37,13 +37,11 @@ function MemberForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateMember(formInput)
-        .then(() => router.push('/'));
+      updateMember(formInput).then(() => router.push('/'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createMember(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-
         updateMember(patchPayload).then(() => {
           router.push('/');
         });
@@ -51,11 +49,17 @@ function MemberForm({ obj }) {
     }
   };
 
+  const handleTeamChange = (e) => {
+    setFormInput((prevState) => ({
+      ...prevState,
+      team: e.target.value,
+    }));
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Member</h2>
 
-      {/* First name INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
         <Form.Control
           type="text"
@@ -78,6 +82,17 @@ function MemberForm({ obj }) {
         />
       </FloatingLabel>
 
+      <FloatingLabel controlId="floatingInput3" label="Member Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Member Image URL"
+          name="image"
+          value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       <FloatingLabel controlId="floatingInput3" label="Role" className="mb-3">
         <Form.Control
           type="text"
@@ -89,27 +104,22 @@ function MemberForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Team" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="team"
-          name="team"
-          value={formInput.team}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      <FloatingLabel controlId="floatingInput3" label="Member Image" className="mb-3">
-        <Form.Control
-          type="url"
-          placeholder="Member Image URL"
-          name="image"
-          value={formInput.image}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+      {/* Team Radio Buttons */}
+      <Form.Group className="mb-3">
+        <Form.Label>Team</Form.Label>
+        {['Bumble', 'Carpenter', 'Honey', 'Hairy-Foot', 'Pantaloon'].map((teamOption) => (
+          <Form.Check
+            key={teamOption}
+            type="radio"
+            label={teamOption}
+            name="team"
+            value={teamOption}
+            checked={formInput.team === teamOption}
+            onChange={handleTeamChange}
+            required
+          />
+        ))}
+      </Form.Group>
 
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Member</Button>
     </Form>
@@ -126,6 +136,7 @@ MemberForm.propTypes = {
     firebaseKey: PropTypes.string,
   }),
 };
+
 MemberForm.defaultProps = {
   obj: initialState,
 };
