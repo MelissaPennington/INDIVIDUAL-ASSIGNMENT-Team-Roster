@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 // import Home from '../pages';
 
-// const teamCard = () => {
+// const teamListCard = () => {
 //   // List of items for the dropdown
 //   const options = ['Bumble Bees', 'Carpenter Bees', 'Honey Bees', 'Hairy-Foot Bees', 'Pantaloon Bees'];
 
@@ -14,7 +14,7 @@
 //   };
 
 //   return (
-//     <div className="card">
+//     <div className="teamListCard">
 //       <h2>Dropdown List on a Card</h2>
 //       <div>
 //         {/* Dropdown list */}
@@ -35,4 +35,4 @@
 //   );
 // };
 
-// export default teamCard;
+// export default teamListCard;
